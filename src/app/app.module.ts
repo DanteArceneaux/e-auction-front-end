@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatInputModule } from '@angular/material/input';
@@ -12,12 +11,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { HeaderComponent } from './header/header.component';
-import { ProductListComponent } from './product/product-list/product-list.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ProductListComponent } from './components/product/product-list/product-list.component';
 import {  MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
-
+import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -25,7 +25,8 @@ import { MatOptionModule } from '@angular/material/core';
   declarations: [
     AppComponent,
     HeaderComponent,
-    ProductListComponent
+    ProductListComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -42,10 +43,9 @@ import { MatOptionModule } from '@angular/material/core';
     MatPaginatorModule,
     MatGridListModule,
     MatSelectModule,
-    MatOptionModule
-
-
-
+    MatOptionModule,
+    MatTableModule,
+    HttpClientModule,
 
   ],
   providers: [],
