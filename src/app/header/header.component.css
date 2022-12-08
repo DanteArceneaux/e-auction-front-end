@@ -1,0 +1,21 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+
+mat-toolbar {
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+h1 {
+    position: absolute;
+    left: 350px;
+}
+
+/* give img rounded corners  and shadow */
+img {
+    padding: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 2px 5px rgba(0, 0, 0, 0.2);
+}
