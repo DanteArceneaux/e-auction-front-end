@@ -16,26 +16,31 @@ export class ProductListComponent implements OnInit, OnDestroy{
   private productsSub: Subscription;
   selectedProduct: string;
   productName: string;
+  bool: boolean = false;
 
   constructor(public productsService: ProductService) {
 
   }
 
   onSelect(value: string): void {
+    this.bool=true;
     this.selectedProduct = value;
     console.log(this.selectedProduct);
 
-    this.productsService.getAllData().subscribe((res: any) => {
+    this.productsService.getProductByProductName(this.selectedProduct).subscribe((res: any) => {
       this.products = res.data.filter(x => x.productName === this.selectedProduct);
       console.log(this.products);
       this.productName = this.products.find(x => x.productName === this.selectedProduct).productName;
       console.log(this.productName);
-
-
      }
-    );    }
+    );
+
+
+  }
+
 
   onFetchProductDetails(){
+
     this.productsService.getAllData().subscribe((res: any) => {
       this.products = res.data;
       console.log(this.products);
