@@ -1,0 +1,22 @@
+<p>bids works!</p>
+<!-- create a table for bids: bid amount, firstName, email, phone -->
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Bid Amount</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let bid of bids">
+      <td>{{bid.bidAmount}}</td>
+      <td>{{bid.firstName}}</td>
+      <td>{{bid.email}}</td>
+      <td>{{bid.phone}}</td>
+    </tr>
+  </tbody>
+</table>
+

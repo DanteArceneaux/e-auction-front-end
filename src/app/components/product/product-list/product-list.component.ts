@@ -14,21 +14,38 @@ export class ProductListComponent implements OnInit, OnDestroy{
 
   products: Product[] = [];
   private productsSub: Subscription;
+  selectedProduct: string;
+  productName: string;
 
   constructor(public productsService: ProductService) {
 
   }
 
-  ngOnInit(): void {
+  onSelect(value: string): void {
+    this.selectedProduct = value;
+    console.log(this.selectedProduct);
+
     this.productsService.getAllData().subscribe((res: any) => {
-     this.products = res.data;
-     console.log(this.products);
-    });
+      this.products = res.data.filter(x => x.productName === this.selectedProduct);
+      console.log(this.products);
+      this.productName = this.products.find(x => x.productName === this.selectedProduct).productName;
+      console.log(this.productName);
+
+
+     }
+    );    }
+
+  onFetchProductDetails(){
+    this.productsService.getAllData().subscribe((res: any) => {
+      this.products = res.data;
+      console.log(this.products);
+
+     });
   }
 
+  ngOnInit(): void {
 
-
-
+  }
 
   ngOnDestroy(): void {
     this.productsSub.unsubscribe();

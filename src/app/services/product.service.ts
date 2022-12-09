@@ -45,6 +45,16 @@ getAllData(): Observable<any> {
   );
 }
 
+getProductByProductName(productName: string): Observable<any> {
+  return this.http.get('http://localhost:5000/e-auction/api/v1/products/productName/' + productName + `/`).pipe(
+    map((res: any) => {
+      return res;
+    })
+  );
+}
+
+
+
 
 getProductUpdateListener() {
   return this.productsUpdated.asObservable();
