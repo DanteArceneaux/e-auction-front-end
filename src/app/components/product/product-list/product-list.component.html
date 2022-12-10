@@ -40,7 +40,7 @@
   </table>
 
 
-<table class="table table-striped" *ngIf="bool==true">
+<table class="table table-striped" *ngIf="this.productSpecificBids.length > 0">
     <thead>
       <tr >
         <th scope="col">Bid Amount</th>
@@ -50,8 +50,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let product of products">
-        <td>{{product | json}}</td>
+      <tr *ngFor="let bid of this.productSpecificBids">
+        <td>{{bid.bidAmount}}</td>
+        <td>{{bid.firstName}}</td>
+        <td>{{bid.lastName}}</td>
+        <td>{{bid.phone}}</td>
       </tr>
     </tbody>
   </table>

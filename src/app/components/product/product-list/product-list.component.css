@@ -21,12 +21,11 @@ tr {
 
 }
 th{
-    width: 150px;
+    width: 250px;
 }
 
 td {
-    margin-left: 100px;
-    width: 600px;
+   width: 250px
 }
 
 

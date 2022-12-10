@@ -1,5 +1,54 @@
-<p>bids works!</p>
-<!-- create a table for bids: bid amount, firstName, email, phone -->
+<!-- <div class="form-group" style="display: flex; justify-content: space-between;">
+  <label for="product">Product</label>
+  <select  style="width: 200px;"  class="form-control" id="product" [(ngModel)]="selectedProduct" (change)="onSelect(selectedProduct)">
+    <option *ngFor="let bid of bids" [value]="bid.productName">{{bid.productName}}</option>
+
+  </select>
+  <button mat-raised-button color="primary" (click)="onFetchProductDetails()">Fetch Product</button>
+</div>
+
+
+
+  <table *ngIf="bool==true">
+    <tr *ngFor="let product of products">
+      <th>Product Name</th>
+      <td>{{product.productName}} </td>
+    </tr>
+
+    <tr *ngFor="let product of products">
+      <th>Product Description</th>
+      <td>{{product.shortDescription}} </td>
+    </tr>
+
+    <tr *ngFor="let product of products">
+      <th>Product Category</th>
+      <td>{{product.productCategory}} </td>
+    </tr>
+
+    <tr *ngFor="let product of products">
+      <th>Starting Price</th>
+      <td>{{product.startingPrice}} </td>
+    </tr>
+
+    <tr *ngFor="let product of products">
+      <th>Bid End Date</th>
+      <td>{{product.bidEndDate}} </td>
+    </tr>
+  </table>
+ -->
+
+<!-- 
+ <div class="form-group" style="display: flex; justify-content: space-between;">
+  <label for="product">Product</label>
+  <select  style="width: 200px;"  class="form-control" id="product" [(ngModel)]="selectedBid" (change)="onSelect(selectedBid)">
+    <option *ngFor="let bid of bids" [value]="bid.product.productName">{{bid.product.productName}}</option>
+
+  </select>
+  <button mat-raised-button color="primary" (click)="onFetchBidDetails()">Fetch Product</button>
+</div>
+
+
+
 
 <table class="table table-striped">
   <thead>
@@ -8,6 +57,8 @@
       <th scope="col">First Name</th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Detailed Description</th>
     </tr>
   </thead>
   <tbody>
@@ -16,7 +67,9 @@
       <td>{{bid.firstName}}</td>
       <td>{{bid.email}}</td>
       <td>{{bid.phone}}</td>
+      <td>{{bid.product.productName}}</td>
+      <td>{{bid.product.detailedDescription}}</td>
     </tr>
   </tbody>
-</table>
+</table> -->
 
