@@ -2,17 +2,18 @@
 
 <!-- Dropdown list of products -->
 <div class="form-group" style="display: flex; justify-content: space-between;">
+
   <label for="product">Product</label>
   <select  style="width: 200px;"  class="form-control" id="product" [(ngModel)]="selectedProduct" (change)="onSelect(selectedProduct)">
-    <option *ngFor="let product of products" [value]="product.productName">{{product.productName}}</option>
+    <option *ngFor="let product of products" [ngValue]="product.productName">{{product.productName}}</option>
 
   </select>
-  <button mat-raised-button color="primary" (click)="onFetchProductDetails()">Fetch Product</button>
+  <button mat-raised-button color="primary" (click)="onFetchProductDetails()" >Fetch Product</button>
 </div>
 
 
-
-  <table *ngIf="bool==true">
+<button (click)="toggleBool()" >Fetch Details</button>
+  <table *ngIf="bool == false">
     <tr *ngFor="let product of products">
       <th>Product Name</th>
       <td>{{product.productName}} </td>

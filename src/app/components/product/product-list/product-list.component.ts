@@ -49,12 +49,17 @@ export class ProductListComponent implements OnInit, OnDestroy{
 
   }
 
+  toggleBool(){
+    this.bool = false ? true : false;
+  }
+
 
   onFetchProductDetails(){
 
+    this.bool = true;
+
     this.productsService.getAllData().subscribe((res: any) => {
       this.products = res.data;
-      console.log(this.products);
 
      });
   }
