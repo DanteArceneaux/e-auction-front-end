@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { RouterModule } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
 
   firstName: string;
   lastName: string;
@@ -19,7 +19,17 @@ export class RegisterComponent {
   email: string;
   pin: number;
   role: string;
+
+  isLoading = false;
+
+
+
 constructor(private loginService: LoginService, private route: Router) { }
+
+
+ngOnInit() {
+
+}
 
   registerUser(form: NgForm) {
 
@@ -42,12 +52,10 @@ constructor(private loginService: LoginService, private route: Router) { }
 
     this.loginService.registerUser(user).subscribe((res: any) => {
       console.log(res);
+      this.route.navigate(['/login']);
     });
 
-    if(form.valid){
-      alert('User Registered Successfully');
-     this.route.navigate(['/login']);
-    }
+
   }
 
 }

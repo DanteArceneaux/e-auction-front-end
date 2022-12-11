@@ -19,7 +19,7 @@ export class ProductListComponent implements OnInit, OnDestroy{
 
   products: Product[] = [];
   private productsSub: Subscription;
-  selectedProduct: string;
+  selectedProduct: string = 'Choose Product';
   productName: string;
   bool: boolean = false;
   productSpecificBids:any[]=[];
@@ -67,8 +67,8 @@ export class ProductListComponent implements OnInit, OnDestroy{
   }
 
 
-  ngOnInit(): void {
-
+  ngOnInit() {
+    this.selectedProduct = 'Selected Product';
   }
 
   ngOnDestroy(): void {

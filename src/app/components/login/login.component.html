@@ -1,6 +1,11 @@
 
 <app-header></app-header>
 
+<h1 *ngIf="me.length > 1" style="text-align: center; margin-top: 50px;">
+    Welcome {{me}}. You Have Successfully Logged In!
+</h1>
+
+
 <mat-card class="login-card" >
 <form (submit)="loginUser(loginForm)" #loginForm="ngForm">
 <mat-form-field color="primary" >
@@ -26,6 +31,3 @@
 </form>
 </mat-card>
 
-<h1 *ngIf="me.length > 1">
-    Welcome {{me}}. You Have Successfully Logged In!
-</h1>

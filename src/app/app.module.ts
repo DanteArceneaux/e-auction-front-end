@@ -24,6 +24,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { RegisterComponent } from './components/register/register.component';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },

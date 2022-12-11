@@ -1,24 +1,22 @@
 
 
-<div class="form-group" style="display: flex; justify-content: space-between;">
-
-  <label for="product">
-    <h1>Product</h1>
-  </label>
-  <select  style="width: 200px;"  class="form-control" id="product" [(ngModel)]="selectedProduct" (change)="onSelect(selectedProduct)">
-    <option *ngFor="let product of products" [ngValue]="product.productName">{{product.productName}}</option>
-
-  </select>
-  <div>
   <button mat-raised-button color="primary" (click)="onFetchProductDetails()"> Fetch Product</button>
   <button class="fetchButton" mat-raised-button color="accent" (click)="toggleBool()" style="margin-left: 10px;"> Fetch Details</button>
-</div>
-</div>
+
+
+<mat-form-field>
+  <mat-label>Product</mat-label>
+  <mat-select [(value)]="selectedProduct" (selectionChange)="onSelect(selectedProduct)">
+    <mat-option *ngFor="let product of products" [value]="product.productName">{{product.productName}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
 
 
 
 
   <table *ngIf="bool == false">
+
     <tr  *ngFor="let product of products">
       <th>Product Name</th>
       <input mat-input type="text" [(ngModel)]="product.productName" />

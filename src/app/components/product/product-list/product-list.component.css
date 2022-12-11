@@ -40,3 +40,21 @@ thead {
     margin-left: 35px;
 }
  */
+
+ select {
+    padding: 10px;
+    background-color: rgb(84, 106, 231);
+    color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(241, 241, 241);
+    transition: 0.5s ease all;
+ }
+
+ option {
+    color: white;
+    transition: 0.5s ease all;
+ }
+ option:hover, select:hover {
+    color: rgb(165, 42, 99);
+
+ }
