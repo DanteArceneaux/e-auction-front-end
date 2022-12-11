@@ -3,6 +3,32 @@
 
 <mat-card class="login-card" >
 
+    <mat-form-field color="primary" >
+        <mat-label>First Name</mat-label>
+        <input matInput type="name" [(ngModel)]="firstName" name="firstName" required>
+
+    </mat-form-field>
+    <mat-form-field color="primary" >
+        <mat-label>Last Name</mat-label>
+        <input matInput type="name" [(ngModel)]="lastName" name="lastName" required>
+
+    </mat-form-field>
+    <mat-form-field color="primary" >
+        <mat-label>City</mat-label>
+        <input matInput type="address" [(ngModel)]="city" name="city" required>
+
+    </mat-form-field>
+    <mat-form-field color="primary" >
+        <mat-label>State</mat-label>
+        <input matInput type="address" [(ngModel)]="state" name="state" required>
+
+    </mat-form-field>
+    <mat-form-field color="primary" >
+        <mat-label>Phone</mat-label>
+        <input matInput type="phone" [(ngModel)]="phone" name="phone" required>
+
+    </mat-form-field>
+
 <mat-form-field color="primary" >
 
     <mat-label>Email</mat-label>
@@ -15,5 +41,5 @@
     <input matInput type="pin" [(ngModel)]="pin" name="pin" required>
 
 </mat-form-field>
-<button color="accent" mat-raised-button >Submit</button>
+<button color="accent" mat-raised-button (click)="registerUser()">Submit</button>
 </mat-card>
