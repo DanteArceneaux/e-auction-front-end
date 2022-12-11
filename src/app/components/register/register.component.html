@@ -1,0 +1,19 @@
+<p>register works!</p>
+<app-header></app-header>
+
+<mat-card class="login-card" >
+
+<mat-form-field color="primary" >
+
+    <mat-label>Email</mat-label>
+    <input matInput type="email" [(ngModel)]="email" name="email" required>
+
+</mat-form-field>
+
+<mat-form-field color="primary" >
+    <mat-label>Pin</mat-label>
+    <input matInput type="pin" [(ngModel)]="pin" name="pin" required>
+
+</mat-form-field>
+<button color="accent" mat-raised-button >Submit</button>
+</mat-card>

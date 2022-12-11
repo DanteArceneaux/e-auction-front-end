@@ -27,7 +27,7 @@ th{
 
 td, input {
    width: 250px;
-   margin-left: 10px;
+   margin-left: 15px;
 }
 
 thead {
@@ -35,3 +35,8 @@ thead {
     margin-left : 10px;
 }
 
+/* .fetchButton {
+    margin-top: 20px;
+    margin-left: 35px;
+}
+ */

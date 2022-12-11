@@ -1,16 +1,22 @@
 
+
 <div class="form-group" style="display: flex; justify-content: space-between;">
 
-  <label for="product">Product</label>
+  <label for="product">
+    <h1>Product</h1>
+  </label>
   <select  style="width: 200px;"  class="form-control" id="product" [(ngModel)]="selectedProduct" (change)="onSelect(selectedProduct)">
     <option *ngFor="let product of products" [ngValue]="product.productName">{{product.productName}}</option>
 
   </select>
-  <button mat-raised-button color="primary" (click)="onFetchProductDetails()" >Fetch Product</button>
+  <div>
+  <button mat-raised-button color="primary" (click)="onFetchProductDetails()"> Fetch Product</button>
+  <button class="fetchButton" mat-raised-button color="accent" (click)="toggleBool()" style="margin-left: 10px;"> Fetch Details</button>
+</div>
 </div>
 
 
-<button (click)="toggleBool()" >Fetch Details</button>
+
 
   <table *ngIf="bool == false">
     <tr  *ngFor="let product of products">
@@ -51,10 +57,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let bid of this.productSpecificBids">
-        <input type="text" [(ngModel)]="bid.bidAmount" />
-        <input type="text" [(ngModel)]="bid.firstName" />
-        <input type="text" [(ngModel)]="bid.email" />
-        <input type="text" [(ngModel)]="bid.phone" />
+        <td style="margin-left: 10px;">{{bid.bidAmount}}</td>
+        <td style="margin-left: 10px;">{{bid.firstName}}</td>
+        <td style="margin-left: 10px;">{{bid.email}}</td>
+        <td style="margin-left: 10px;">{{bid.phone}}</td>
 
 
       </tr>

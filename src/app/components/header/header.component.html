@@ -13,12 +13,22 @@
   ">E-Auction</h1>
 
 
-<button
-mat-raised-button
-color="accent"
->
-  Fetch Details
-</button>
+<button  mat-button [matMenuTriggerFor]="menu" mat-raised-button>Menu</button>
+<mat-menu   #menu="matMenu">
+  <button mat-menu-item>
+
+    <a routerLink="/home" routerLinkActive="active">Home</a>
+
+  </button>
+  <button mat-menu-item>
+
+      <!-- link to login href -->
+      <a href="http://localhost:4200/login" routerLinkActive="active">Login</a>
+
+
+  </button>
+</mat-menu>
+
 
   </mat-toolbar>
 

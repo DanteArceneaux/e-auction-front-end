@@ -19,6 +19,19 @@ import { MatOptionModule } from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { BidsComponent } from   './components/bids/bids.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { RegisterComponent } from './components/register/register.component';
+
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+];
+
 
 
 
@@ -28,6 +41,9 @@ import { BidsComponent } from   './components/bids/bids.component';
     HeaderComponent,
     ProductListComponent,
     BidsComponent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
 
   ],
   imports: [
@@ -47,7 +63,9 @@ import { BidsComponent } from   './components/bids/bids.component';
     MatSelectModule,
     MatOptionModule,
     MatTableModule,
+    MatMenuModule,
     HttpClientModule,
+    RouterModule.forRoot(routes)
 
   ],
   providers: [],
