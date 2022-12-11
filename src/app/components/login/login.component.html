@@ -1,19 +1,31 @@
+
 <app-header></app-header>
 
 <mat-card class="login-card" >
-
+<form (submit)="loginUser(loginForm)" #loginForm="ngForm">
 <mat-form-field color="primary" >
 
     <mat-label>Email</mat-label>
-    <input matInput type="email" [(ngModel)]="email" name="email" required>
+    <input matInput type="text" ngModel #email="ngModel" name="email" required>
+    <mat-error *ngIf="email.invalid">
+        Email is required. Must by in Email format.
+    </mat-error>
 
 </mat-form-field>
 
 <mat-form-field color="primary" >
     <mat-label>Pin</mat-label>
-    <input matInput type="pin" [(ngModel)]="pin" name="pin" required>
+    <input matInput type="number" ngModel #pin="ngModel" name="pin" required>
+    <mat-error *ngIf="pin.invalid">
+        Pin is required.
+    </mat-error>
 
 </mat-form-field>
 
-<button color="accent" mat-raised-button >Submit</button>
+<button color="accent" mat-raised-button type="submit">Submit</button>
+</form>
 </mat-card>
+
+<h1 *ngIf="me.length > 1">
+    Welcome {{me}}. You Have Successfully Logged In!
+</h1>
