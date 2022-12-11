@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { RouterModule } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,9 +19,15 @@ export class RegisterComponent {
   email: string;
   pin: number;
   role: string;
-constructor(private loginService: LoginService) { }
+constructor(private loginService: LoginService, private route: Router) { }
 
   registerUser(form: NgForm) {
+
+    if (form.invalid) {
+      alert('Please fill all the fields');
+      return;
+    }
+
     const user = {
       firstName: form.value.firstName,
       lastName: form.value.lastName,
@@ -36,6 +43,11 @@ constructor(private loginService: LoginService) { }
     this.loginService.registerUser(user).subscribe((res: any) => {
       console.log(res);
     });
+
+    if(form.valid){
+      alert('User Registered Successfully');
+     this.route.navigate(['/login']);
+    }
   }
 
 }

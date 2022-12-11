@@ -5,40 +5,63 @@
 <form (submit)="registerUser(registerForm)" #registerForm="ngForm">
     <mat-form-field color="primary" >
         <mat-label>First Name</mat-label>
-        <input matInput type="text" ngModel name="firstName" required>
-
+        <input matInput type="text" ngModel name="firstName" #firstName="ngModel" required minlength="5" maxlength="30">
+        <mat-error *ngIf="firstName.invalid">
+            First Name is required. Must be 5 letters long and less than 30 letters.
+        </mat-error>
     </mat-form-field>
     <mat-form-field color="primary" >
         <mat-label>Last Name</mat-label>
-        <input matInput type="text" ngModel name="lastName" required>
+        <input matInput type="text" ngModel name="lastName" #lastName="ngModel" required minlength="5" maxlength="30">
+        <mat-error *ngIf="lastName.invalid">
+            Last Name is required. Must be 5 letters long and less than 30 letters.
+        </mat-error>
 
     </mat-form-field>
     <mat-form-field color="primary" >
         <mat-label>City</mat-label>
-        <input matInput type="text" ngModel name="city" required>
+        <input matInput type="text" ngModel name="city" #city="ngModel" required>
+        <mat-error *ngIf="city.invalid">
+            City is required
+        </mat-error>
 
     </mat-form-field>
     <mat-form-field color="primary" >
         <mat-label>State</mat-label>
-        <input matInput type="text" ngModel name="state" required>
+        <input matInput type="text" ngModel name="state" #state="ngModel" required>
+        <mat-error *ngIf="state.invalid">
+            State is required
+        </mat-error>
 
     </mat-form-field>
     <mat-form-field color="primary" >
         <mat-label>Phone</mat-label>
-        <input matInput type="text" ngModel name="phone" required>
+        <input matInput type="text" ngModel name="phone" #phone="ngModel" required minlength="10" maxlength="10">
+        <mat-error *ngIf="phone.invalid">
+            Phone number is required.  Must be exactly 10 digits.
+        </mat-error>
 
     </mat-form-field>
 
 <mat-form-field color="primary" >
 
     <mat-label>Email</mat-label>
-    <input matInput type="email" ngModel name="email" required>
+    <input matInput type="email" ngModel name="email" #email="ngModel" required>
+    <mat-error *ngIf="email.invalid">
+        Email is required.  Must Be in proper format.
+    </mat-error>
 
 </mat-form-field>
 
 <mat-form-field color="primary" >
     <mat-label>Pin</mat-label>
-    <input matInput type="number" ngModel  name="pin" required>
+    <input matInput type="number" ngModel  name="pin" #pin="ngModel" required maxlength="6">
+
+</mat-form-field>
+
+<mat-form-field color="primary" >
+    <mat-label>Role (default is buyer.  choose seller to add product) </mat-label>
+    <input matInput type="role" ngModel  name="role" #pin="ngModel" >
 
 </mat-form-field>
 <button color="accent" mat-raised-button type="submit">Submit</button>
