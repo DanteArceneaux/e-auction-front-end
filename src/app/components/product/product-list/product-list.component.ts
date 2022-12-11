@@ -15,6 +15,8 @@ import { BidsService } from '../../../services/bids.service';
 })
 export class ProductListComponent implements OnInit, OnDestroy{
 
+
+
   products: Product[] = [];
   private productsSub: Subscription;
   selectedProduct: string;

@@ -18,14 +18,20 @@ table {
 
 tr {
     display: flex;
+    margin-top: 10px;
 
 }
 th{
     width: 250px;
 }
 
-td {
-   width: 250px
+td, input {
+   width: 250px;
+   margin-left: 10px;
 }
 
+thead {
+    display: flex;
+    margin-left : 10px;
+}
 

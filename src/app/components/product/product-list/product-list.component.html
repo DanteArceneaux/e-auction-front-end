@@ -1,6 +1,4 @@
 
-
-<!-- Dropdown list of products -->
 <div class="form-group" style="display: flex; justify-content: space-between;">
 
   <label for="product">Product</label>
@@ -13,49 +11,52 @@
 
 
 <button (click)="toggleBool()" >Fetch Details</button>
+
   <table *ngIf="bool == false">
-    <tr *ngFor="let product of products">
+    <tr  *ngFor="let product of products">
       <th>Product Name</th>
-      <td>{{product.productName}} </td>
+      <input mat-input type="text" [(ngModel)]="product.productName" />
     </tr>
 
     <tr *ngFor="let product of products">
       <th>Product Description</th>
-      <td>{{product.shortDescription}} </td>
+      <input type="text" [(ngModel)]="product.shortDescription" />
     </tr>
 
     <tr *ngFor="let product of products">
       <th>Product Category</th>
-      <td>{{product.productCategory}} </td>
+      <input type="text" [(ngModel)]="product.productCategory" />
     </tr>
 
     <tr *ngFor="let product of products">
       <th>Starting Price</th>
-      <td>{{product.startingPrice}} </td>
+     <input type="text" [(ngModel)]="product.startingPrice" />
     </tr>
 
     <tr *ngFor="let product of products">
       <th>Bid End Date</th>
-      <td>{{product.bidEndDate}} </td>
+      <input type="text" [(ngModel)]="product.bidEndDate" />
     </tr>
   </table>
 
 
-<table class="table table-striped" *ngIf="this.productSpecificBids.length > 0">
+<table *ngIf="this.productSpecificBids.length > 0">
     <thead>
       <tr >
-        <th scope="col">Bid Amount</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Phone</th>
+        <th scope="col" >Bid Amount</th>
+        <th scope="col" style="margin-left: 10px;">First Name</th>
+        <th scope="col" style="margin-left: 10px;">Email</th>
+        <th scope="col" style="margin-left: 10px;">Phone</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let bid of this.productSpecificBids">
-        <td>{{bid.bidAmount}}</td>
-        <td>{{bid.firstName}}</td>
-        <td>{{bid.lastName}}</td>
-        <td>{{bid.phone}}</td>
+        <input type="text" [(ngModel)]="bid.bidAmount" />
+        <input type="text" [(ngModel)]="bid.firstName" />
+        <input type="text" [(ngModel)]="bid.email" />
+        <input type="text" [(ngModel)]="bid.phone" />
+
+
       </tr>
     </tbody>
   </table>
