@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { RouterModule } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -19,16 +20,16 @@ export class RegisterComponent {
   role: string;
 constructor(private loginService: LoginService) { }
 
-  registerUser() {
+  registerUser(form: NgForm) {
     const user = {
-      firstName: this.firstName,
-      lastName: this.lastName,
-      phone: this.phone,
-      state: this.state,
-      city: this.city,
-      email: this.email,
-      pin: this.pin,
-      role: this.role,
+      firstName: form.value.firstName,
+      lastName: form.value.lastName,
+      email: form.value.email,
+      pin: form.value.pin,
+      phone: form.value.phone,
+      state: form.value.state,
+      city: form.value.city,
+      role: form.value.role,
       type: 'User'
     }
 
