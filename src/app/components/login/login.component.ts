@@ -38,8 +38,12 @@ export class LoginComponent {
       }
 
       this.loginService.loginUser(user).subscribe((res: any) => {
-        console.log(res);
+
+        localStorage.setItem('token', res.token);
+
         this.me = res.data
+        console.log(this.me)
+        console.log(res.token)
 
       if(this.me.length > 0) {
         setTimeout(() => {

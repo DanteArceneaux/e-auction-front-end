@@ -10,7 +10,6 @@ export class LoginService {
 
 
 
-
     constructor(private http: HttpClient) { }
 
     registerUser(user: {
@@ -26,6 +25,7 @@ export class LoginService {
       return this.http.post<User>('http://localhost:5000/e-auction/api/v1/auth/register', user);
     }
 
+
     loginUser(user: {
       email: string,
       pin: number
@@ -37,7 +37,8 @@ export class LoginService {
       return this.http.get<User>('http://localhost:5000/e-auction/api/v1/auth/me');
     }
 
-
-
+    getToken() {
+      return localStorage.getItem('token');
+    }
 
 }

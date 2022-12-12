@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 import {Pipe, PipeTransform} from '@angular/core';
 import { BidsService } from '../../../services/bids.service';
 
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',

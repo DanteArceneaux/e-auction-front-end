@@ -17,7 +17,7 @@ import {  MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { BidsComponent } from   './components/bids/bids.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
@@ -25,6 +25,8 @@ import { LoginComponent } from './components/login/login.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { RegisterComponent } from './components/register/register.component';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { HttpRequestInterceptor } from './HttpRequestInterceptor';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -66,9 +68,10 @@ const routes: Routes = [
     MatMenuModule,
     HttpClientModule,
     RouterModule.forRoot(routes)
-
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
