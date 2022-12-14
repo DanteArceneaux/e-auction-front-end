@@ -34,11 +34,13 @@ export class LoginService {
     }
 
     getCurrentUser(): Observable<User> {
-      return this.http.get<User>('http://localhost:5000/e-auction/api/v1/auth/me');
+      return this.http.get<User>('http://localhost:5000/e-auction/api/v1/auth/me', );
     }
 
     getToken() {
       return localStorage.getItem('token');
     }
+
+
 
 }

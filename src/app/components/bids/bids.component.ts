@@ -15,6 +15,18 @@ export class BidsComponent implements OnInit, OnDestroy {
   selectedBid: string;
   bidName: string;
 
+  buyerId: string;
+  productId: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  state: string;
+  city: string;
+  email: string;
+  pin: number;
+  bidAmount: number;
+  address: string;
+
 
 
   constructor( public bidsService: BidsService   ) { }
@@ -40,6 +52,38 @@ export class BidsComponent implements OnInit, OnDestroy {
       console.log(this.bids);
       });
   }
+
+  addBid(form: NgForm){
+    if(form.invalid){
+      return;
+    }
+    const bid = {
+      buyerId: form.value.buyerId,
+      productId: form.value.productId,
+      firstName: form.value.firstName,
+      lastName: form.value.lastName,
+      phone: form.value.phone,
+      address: form.value.address,
+      state: form.value.state,
+      city: form.value.city,
+      email: form.value.email,
+      pin: form.value.pin,
+      bidAmount: form.value.bidAmount,
+
+    }
+
+
+    this.bidsService.addBid(bid).
+    subscribe((res: any) => {
+      console.log(res);
+      this.bids.push(res.data);
+      form.resetForm();
+    }
+    );
+  }
+
+
+
 
 
   ngOnInit(): void {

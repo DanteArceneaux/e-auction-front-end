@@ -1,19 +1,35 @@
 
-
+<div style="
+margin: 10px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+">
   <button mat-raised-button color="primary" (click)="onFetchProductDetails()"> Fetch Product</button>
-  <button class="fetchButton" mat-raised-button color="accent" (click)="toggleBool()" style="margin-left: 10px;"> Fetch Details</button>
 
-
-<mat-form-field>
+<mat-form-field >
   <mat-label>Product</mat-label>
-  <mat-select [(value)]="selectedProduct" (selectionChange)="onSelect(selectedProduct)">
+  <mat-select [(value)]="selectedProduct" (selectionChange)="onSelect(selectedProduct)" id="dropdown">
     <mat-option *ngFor="let product of products" [value]="product.productName">{{product.productName}}</mat-option>
   </mat-select>
 </mat-form-field>
 
+<button id="fetchProduct" class="fetchButton" mat-raised-button color="accent" (click)="toggleBool()" style="margin-left: 10px;"> Fetch Details</button></div>
 
-
-
+<div>
+<h1 style="text-align: center;">Welcome to E-Auction sponsored by Revature Technologies</h1>
+<ul>
+  <li>
+    To Begin, Click the Fetch Product Button to populate the dropdown menu with all products.
+  </li>
+  <li>
+    Then, Select a Product from the dropdown menu.
+  </li>
+  <li>
+    After that, Click the Fetch Details Button to see the product details.
+  </li>
+</ul>
+</div>
 
   <table *ngIf="bool == false">
 
@@ -23,12 +39,16 @@
     </tr>
 
     <tr *ngFor="let product of products">
-      <th>Product Description</th>
+      <th>Short Description</th>
       <input type="text" [(ngModel)]="product.shortDescription" />
+    </tr>
+    <tr *ngFor="let product of products">
+      <th>Detailed Description</th>
+      <input type="text" [(ngModel)]="product.detailedDescription" />
     </tr>
 
     <tr *ngFor="let product of products">
-      <th>Product Category</th>
+      <th>Category</th>
       <input type="text" [(ngModel)]="product.productCategory" />
     </tr>
 
@@ -44,7 +64,8 @@
   </table>
 
 
-<table *ngIf="this.productSpecificBids.length > 0">
+
+<table *ngIf="this.productSpecificBids.length > 0 && bool == false">
     <thead>
       <tr >
         <th scope="col" >Bid Amount</th>
@@ -59,8 +80,8 @@
         <td style="margin-left: 10px;">{{bid.firstName}}</td>
         <td style="margin-left: 10px;">{{bid.email}}</td>
         <td style="margin-left: 10px;">{{bid.phone}}</td>
-
-
       </tr>
+        <!-- <button mat-raised-button color="accent" style="margin-top: 15px;"> Add New Bid </button> -->
+
     </tbody>
   </table>

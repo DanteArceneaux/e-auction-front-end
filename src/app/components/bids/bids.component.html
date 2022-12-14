@@ -1,75 +1,90 @@
-<!-- <div class="form-group" style="display: flex; justify-content: space-between;">
-  <label for="product">Product</label>
-  <select  style="width: 200px;"  class="form-control" id="product" [(ngModel)]="selectedProduct" (change)="onSelect(selectedProduct)">
-    <option *ngFor="let bid of bids" [value]="bid.productName">{{bid.productName}}</option>
+<!--
+<app-header></app-header>
 
-  </select>
-  <button mat-raised-button color="primary" (click)="onFetchProductDetails()">Fetch Product</button>
-</div>
-
-
-
-  <table *ngIf="bool==true">
-    <tr *ngFor="let product of products">
-      <th>Product Name</th>
-      <td>{{product.productName}} </td>
-    </tr>
-
-    <tr *ngFor="let product of products">
-      <th>Product Description</th>
-      <td>{{product.shortDescription}} </td>
-    </tr>
-
-    <tr *ngFor="let product of products">
-      <th>Product Category</th>
-      <td>{{product.productCategory}} </td>
-    </tr>
-
-    <tr *ngFor="let product of products">
-      <th>Starting Price</th>
-      <td>{{product.startingPrice}} </td>
-    </tr>
-
-    <tr *ngFor="let product of products">
-      <th>Bid End Date</th>
-      <td>{{product.bidEndDate}} </td>
-    </tr>
-  </table>
- -->
-
-<!-- 
- <div class="form-group" style="display: flex; justify-content: space-between;">
-  <label for="product">Product</label>
-  <select  style="width: 200px;"  class="form-control" id="product" [(ngModel)]="selectedBid" (change)="onSelect(selectedBid)">
-    <option *ngFor="let bid of bids" [value]="bid.product.productName">{{bid.product.productName}}</option>
-
-  </select>
-  <button mat-raised-button color="primary" (click)="onFetchBidDetails()">Fetch Product</button>
-</div>
+<mat-card class="addBid-card" >
+<form (submit)="addBid(addBidForm)" #addBidForm="ngForm">
 
 
 
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Bid Amount</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone</th>
-      <th scope="col">Product Name</th>
-      <th scope="col">Detailed Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let bid of bids">
-      <td>{{bid.bidAmount}}</td>
-      <td>{{bid.firstName}}</td>
-      <td>{{bid.email}}</td>
-      <td>{{bid.phone}}</td>
-      <td>{{bid.product.productName}}</td>
-      <td>{{bid.product.detailedDescription}}</td>
-    </tr>
-  </tbody>
-</table> -->
 
+    <mat-form-field color="primary" >
+        <mat-label>Buyer Id</mat-label>
+        <input matInput type="text" ngModel name="buyerId" #buyerId="ngModel">
+    </mat-form-field>
+
+    <mat-form-field color="primary" >
+        <mat-label>Product Id</mat-label>
+        <input matInput type="text" ngModel name="productId" #buyerId="ngModel">
+    </mat-form-field>
+
+
+
+
+
+
+
+    <mat-form-field color="primary" >
+        <mat-label>First Name</mat-label>
+        <input matInput type="text" ngModel name="firstName" #firstName="ngModel" required minlength="5" maxlength="30">
+        <mat-error *ngIf="firstName.invalid">
+            First Name is required. Must be 5 letters long and less than 30 letters.
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field color="primary" >
+        <mat-label>Last Name</mat-label>
+        <input matInput type="text" ngModel name="lastName" #lastName="ngModel" required minlength="5" maxlength="30">
+        <mat-error *ngIf="lastName.invalid">
+            Last Name is required. Must be 5 letters long and less than 30 letters.
+        </mat-error>
+
+    </mat-form-field>
+    <mat-form-field color="primary" >
+        <mat-label>City</mat-label>
+        <input matInput type="text" ngModel name="city" #city="ngModel" required>
+        <mat-error *ngIf="city.invalid">
+            City is required
+        </mat-error>
+
+    </mat-form-field>
+    <mat-form-field color="primary" >
+        <mat-label>State</mat-label>
+        <input matInput type="text" ngModel name="state" #state="ngModel" required>
+        <mat-error *ngIf="state.invalid">
+            State is required
+        </mat-error>
+
+    </mat-form-field>
+    <mat-form-field color="primary" >
+        <mat-label>Phone</mat-label>
+        <input matInput type="text" ngModel name="phone" #phone="ngModel" required minlength="10" maxlength="10">
+        <mat-error *ngIf="phone.invalid">
+            Phone number is required.  Must be exactly 10 digits.
+        </mat-error>
+
+    </mat-form-field>
+
+<mat-form-field color="primary" >
+
+    <mat-label>Email</mat-label>
+    <input matInput type="email" ngModel name="email" #email="ngModel" required>
+    <mat-error *ngIf="email.invalid">
+        Email is required.  Must Be in proper format.
+    </mat-error>
+
+</mat-form-field>
+
+<mat-form-field color="primary" >
+    <mat-label>Pin</mat-label>
+    <input matInput type="number" ngModel  name="pin" #pin="ngModel" required maxlength="6">
+
+</mat-form-field>
+<mat-form-field color="primary" >
+    <mat-label>Bid Amount  </mat-label>
+    <input matInput type="bidAmount" ngModel  name="bidAmount" #bidAmount="ngModel" >
+
+</mat-form-field>
+
+<button color="accent" mat-raised-button type="submit">Submit</button>
+</form>
+</mat-card> -->

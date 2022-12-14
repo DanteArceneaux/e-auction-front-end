@@ -18,6 +18,22 @@ export class BidsService {
 
     constructor(private http: HttpClient) { }
 
+    addBid(bid: {
+      buyerId: string,
+      productId: string,
+      firstName: string,
+      lastName: string,
+      address: string,
+      city: string,
+      state: string,
+      pin: number,
+      phone: string,
+      email: string,
+      bidAmount: number
+    }): Observable<any> {
+      return this.http.post('http://localhost:5000/e-auction/api/v1/bids/add-bid', bid);
+    }
+
 
   getAllBids(): Observable<any> {
     return this.http.get('http://localhost:5000/e-auction/api/v1/bids/').pipe(
