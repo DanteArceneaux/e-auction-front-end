@@ -11,7 +11,7 @@
 <mat-form-field color="primary" >
 
     <mat-label>Email</mat-label>
-    <input matInput type="text" ngModel #email="ngModel" name="email" required>
+    <input id="email" matInput type="text" ngModel #email="ngModel" name="email" required>
     <mat-error *ngIf="email.invalid">
         Email is required. Must by in Email format.
     </mat-error>
@@ -20,14 +20,14 @@
 
 <mat-form-field color="primary" >
     <mat-label>Pin</mat-label>
-    <input matInput type="number" ngModel #pin="ngModel" name="pin" required>
+    <input id="pin" matInput type="number" ngModel #pin="ngModel" name="pin" required>
     <mat-error *ngIf="pin.invalid">
         Pin is required.
     </mat-error>
 
 </mat-form-field>
 
-<button color="accent" mat-raised-button type="submit">Submit</button>
+<button id="loginButton" color="accent" mat-raised-button type="submit">Submit</button>
 </form>
 </mat-card>
 

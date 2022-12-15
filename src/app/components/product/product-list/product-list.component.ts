@@ -21,7 +21,7 @@ export class ProductListComponent implements OnInit, OnDestroy{
   products: Product[] = [];
   private productsSub: Subscription;
   selectedProduct: string = 'Choose Product';
-  productName: string;
+  productName: string = 'Holiday on the Mars';
   bool: boolean = false;
   productSpecificBids:any[]=[];
 
@@ -63,8 +63,8 @@ export class ProductListComponent implements OnInit, OnDestroy{
 
     this.productsService.getAllData().subscribe((res: any) => {
       this.products = res.data;
-
      });
+     this.selectedProduct = '';
   }
 
 
