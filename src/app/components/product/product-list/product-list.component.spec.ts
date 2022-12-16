@@ -67,12 +67,23 @@ describe('ProductComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-   //onSelect method
+  //  onSelect method
     it('should call onSelect method', () => {
       spyOn(component, 'onSelect');
       component.onSelect('product');
       expect(component.onSelect).toHaveBeenCalled();
     }
   );
+
+  it('toggleBool should toggle the value of bool', () => {
+    component.toggleBool();
+    expect(component.bool).toBeFalse();
+  })
+
+  it('onFetchProductDetails should call the service', () => {
+    spyOn(component, 'onFetchProductDetails');
+    component.onFetchProductDetails();
+    expect(component.onFetchProductDetails).toHaveBeenCalled();
+  })
 
 });
