@@ -28,4 +28,12 @@ describe('BidsComponent', () => {
     expect(component.onFetchBidDetails).toBeTruthy();
   }
   );
+
+  //onFetchBidDetails should work
+  it('onFetchBidDetails should work', () => {
+    component.onFetchBidDetails();
+    expect(component.bids).toBeTruthy();
+  }
+  );
+
 });

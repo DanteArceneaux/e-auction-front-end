@@ -24,12 +24,15 @@ import { HomeComponent } from '../home/home.component';
 import { LoginComponent } from '../login/login.component';
 import { ProductListComponent } from '../product/product-list/product-list.component';
 import { RegisterComponent } from '../register/register.component';
+import { Router } from '@angular/router';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async () => {
+
+
     await TestBed.configureTestingModule({
       declarations: [ AppComponent,
         HeaderComponent,
@@ -55,6 +58,9 @@ describe('HeaderComponent', () => {
         MatOptionModule,
         MatTableModule,
         MatMenuModule
+      ],
+      providers: [
+        { provide: Router }
       ]
     })
     .compileComponents();
@@ -67,4 +73,16 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+
+  //goHome() should navigate to home
+  it('should navigate to home', () => {
+    const router = TestBed.inject(Router);
+    const spy = spyOn(router, 'navigate');
+    component.goHome();
+    expect(spy).toHaveBeenCalledWith(['/']);
+  }
+  );
+
+
+
+})

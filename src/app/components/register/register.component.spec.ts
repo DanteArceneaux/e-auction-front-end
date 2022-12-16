@@ -25,6 +25,7 @@ import { HeaderComponent } from '../header/header.component';
 import { HomeComponent } from '../home/home.component';
 import { LoginComponent } from '../login/login.component';
 import { ProductListComponent } from '../product/product-list/product-list.component';
+import { Router } from '@angular/router';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -56,6 +57,9 @@ describe('RegisterComponent', () => {
         MatOptionModule,
         MatTableModule,
         MatMenuModule
+      ],
+      providers: [
+        { provide: Router }
       ]
 
     })
@@ -69,4 +73,11 @@ describe('RegisterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+
+  it('should have a register button', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('button').textContent).toContain('Menu');
+  }
+  );
+
+})
