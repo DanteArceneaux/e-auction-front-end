@@ -72,7 +72,6 @@ export class BidsComponent implements OnInit, OnDestroy {
 
     }
 
-
     this.bidsService.addBid(bid).
     subscribe((res: any) => {
       console.log(res);
@@ -82,10 +81,6 @@ export class BidsComponent implements OnInit, OnDestroy {
     );
   }
 
-
-
-
-
   ngOnInit(): void {
     this.bidsService.getAllBids().subscribe((res: any) => {
       this.bids = res.data;
@@ -93,7 +88,9 @@ export class BidsComponent implements OnInit, OnDestroy {
      });
   }
   ngOnDestroy(): void {
-   this.bidsSub.unsubscribe();
+    if(this.bidsSub){
+      this.bidsSub.unsubscribe();
+    }
   }
 
 
