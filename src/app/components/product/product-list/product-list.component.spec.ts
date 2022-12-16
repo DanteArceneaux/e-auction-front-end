@@ -67,4 +67,12 @@ describe('ProductComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+   //onSelect method
+    it('should call onSelect method', () => {
+      spyOn(component, 'onSelect');
+      component.onSelect('product');
+      expect(component.onSelect).toHaveBeenCalled();
+    }
+  );
+
 });

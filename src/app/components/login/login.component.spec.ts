@@ -67,10 +67,24 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have a login button', () => {
+  it('should have a menu button', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('button').textContent).toContain('Menu');
   }
   );
+
+  //it should have an email input field
+  it('should have an email input field', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('mat-label').textContent).toContain('Email');
+  });
+
+  //it should mat-form-field
+  it('should have a mat-form-field', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('mat-form-field')).toBeTruthy();
+  }
+  );
+
 
 });

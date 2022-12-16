@@ -67,4 +67,21 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  //should contain app-header
+  it('should contain app-header', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('app-header')).toBeTruthy();
+  }
+  );
+
+  //should contain app-product-list
+  it('should contain app-product-list', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('app-product-list')).toBeTruthy();
+  }
+  );
+
+ 
+
 });
